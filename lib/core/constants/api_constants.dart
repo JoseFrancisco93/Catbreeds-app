@@ -4,3 +4,5 @@
 const String kCatApiUrl = 'https://api.thecatapi.com/v1';
 const String kCatApiKey =
     'live_99Qe4Ppj34NdplyLW67xCV7Ds0oSLKGgcWWYnSzMJY9C0QOu0HUR4azYxWkyW2nr';
+// ignore: constant_identifier_names
+const bool IS_PROD = false;
