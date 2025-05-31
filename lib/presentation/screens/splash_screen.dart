@@ -1,4 +1,6 @@
+import 'package:catbreeds_app/core/utils/navigation_utils.dart';
 import 'package:catbreeds_app/presentation/providers/cat_breed_provider.dart';
+import 'package:catbreeds_app/presentation/screens/landing_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -21,7 +23,9 @@ class _SplashScreenState extends State<SplashScreen> {
   Future<void> _init() async {
     final provider = Provider.of<CatBreedProvider>(context, listen: false);
     await provider.loadBreeds();
-    // TODO: route
+    if (mounted) {
+      NavigationUtils.pushReplacement(context, const LandingScreen());
+    }
   }
 
   @override
