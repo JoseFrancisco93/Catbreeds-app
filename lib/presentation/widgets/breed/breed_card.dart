@@ -1,6 +1,8 @@
+import 'package:catbreeds_app/core/utils/navigation_utils.dart';
 import 'package:catbreeds_app/domain/entities/cat_breed.dart';
 import 'package:catbreeds_app/presentation/models/bold_text_item.dart';
 import 'package:catbreeds_app/presentation/providers/cat_breed_provider.dart';
+import 'package:catbreeds_app/presentation/screens/breed_detail_screen.dart';
 import 'package:catbreeds_app/presentation/widgets/breed/breed_image.dart';
 import 'package:catbreeds_app/presentation/widgets/utils/bold_row_text.dart';
 import 'package:flutter/material.dart';
@@ -12,12 +14,21 @@ class BreedCard extends StatelessWidget {
   const BreedCard(
       {super.key, required this.breed, required this.catBreedProvider});
 
+  void Function() gotoCatInfo(
+    BuildContext context,
+  ) {
+    return () {
+      catBreedProvider.selectCatBreed(breed).then(
+          (value) => NavigationUtils.push(context, const BreedDetailScreen()));
+    };
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: GestureDetector(
-        onTap: () {},
+        onTap: gotoCatInfo(context),
         child: Card(
           shape: RoundedRectangleBorder(
             side: const BorderSide(
@@ -39,7 +50,7 @@ class BreedCard extends StatelessWidget {
                     ),
                     BoldTextItem(
                       text: 'More...',
-                      onTap: () {},
+                      onTap: gotoCatInfo(context),
                     ),
                   ],
                 ),

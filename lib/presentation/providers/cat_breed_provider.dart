@@ -9,6 +9,7 @@ class CatBreedProvider with ChangeNotifier {
   List<CatBreed> breeds = [];
   bool loading = false;
   String? errorMessage;
+  CatBreed? catBreedSelected;
   int _page = 0;
   final int _limit = 10;
   bool hasMore = true;
@@ -47,6 +48,11 @@ class CatBreedProvider with ChangeNotifier {
       _page++;
       loadBreeds(loadMore: true);
     }
+  }
+
+  Future<void> selectCatBreed(CatBreed catBreed) async {
+    catBreedSelected = catBreed;
+    notifyListeners();
   }
 
   List<CatBreed> get filteredBreeds => breeds;
