@@ -1,6 +1,7 @@
 import 'package:catbreeds_app/domain/entities/cat_breed.dart';
 import 'package:catbreeds_app/presentation/models/bold_text_item.dart';
 import 'package:catbreeds_app/presentation/providers/cat_breed_provider.dart';
+import 'package:catbreeds_app/presentation/widgets/breed/breed_image.dart';
 import 'package:catbreeds_app/presentation/widgets/utils/bold_row_text.dart';
 import 'package:flutter/material.dart';
 
@@ -41,6 +42,11 @@ class BreedCard extends StatelessWidget {
                       onTap: () {},
                     ),
                   ],
+                ),
+                BreedImage(
+                  url: breed.imageUrl,
+                  width: 250,
+                  height: 250,
                 ),
                 BoldRowText(
                   items: [
