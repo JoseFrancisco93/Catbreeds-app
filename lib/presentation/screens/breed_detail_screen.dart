@@ -1,6 +1,7 @@
 import 'package:catbreeds_app/domain/entities/cat_breed.dart';
 import 'package:catbreeds_app/presentation/providers/cat_breed_provider.dart';
 import 'package:catbreeds_app/presentation/widgets/breed/breed_image.dart';
+import 'package:catbreeds_app/presentation/widgets/breed/breed_info_detailed.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -27,6 +28,9 @@ class BreedDetailScreen extends StatelessWidget {
               url: breed.imageUrl,
               width: double.infinity,
               height: 420,
+            ),
+            Expanded(
+              child: BreedInfoDetailed(breed: breed),
             ),
           ],
         ),
