@@ -41,4 +41,13 @@ class CatBreedProvider with ChangeNotifier {
     loading = false;
     notifyListeners();
   }
+
+  void loadNextPage() {
+    if (hasMore && !loading) {
+      _page++;
+      loadBreeds(loadMore: true);
+    }
+  }
+
+  List<CatBreed> get filteredBreeds => breeds;
 }
