@@ -1,5 +1,6 @@
 import 'package:catbreeds_app/presentation/providers/cat_breed_provider.dart';
 import 'package:catbreeds_app/presentation/widgets/breed/breed_card.dart';
+import 'package:catbreeds_app/presentation/widgets/breed/search_breed.dart';
 import 'package:catbreeds_app/presentation/widgets/errors/fetch_error.dart';
 import 'package:catbreeds_app/presentation/widgets/utils/no_results_found.dart';
 import 'package:flutter/material.dart';
@@ -20,13 +21,18 @@ class LandingScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
+          SearchBar(
+            hintText: 'Find a breed',
+            onChanged: (value) => catBreedProvider.search = value,
+          ),
           Expanded(
             child: NotificationListener<ScrollNotification>(
               onNotification: (scrollInfo) {
                 if (!catBreedProvider.loading &&
                     catBreedProvider.hasMore &&
                     scrollInfo.metrics.pixels ==
-                        scrollInfo.metrics.maxScrollExtent) {
+                        scrollInfo.metrics.maxScrollExtent &&
+                    catBreedProvider.searchValue.isEmpty) {
                   catBreedProvider.loadNextPage();
                 }
                 return false;
