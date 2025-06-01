@@ -8,4 +8,6 @@ class GetCatBreedsUseCase {
 
   Future<List<CatBreed>> call({int page = 0, int limit = 10}) =>
       repository.getBreeds(page: page, limit: limit);
+
+  Future<List<CatBreed>> search(String query) => repository.searchBreeds(query);
 }

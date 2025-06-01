@@ -23,4 +23,19 @@ class CatApiService {
       throw Exception('Failed to fetch breeds: ${e.message}');
     }
   }
+
+  Future<List<CatBreedModel>> searchBreeds(String query) async {
+    try {
+      final response = await _dio.get(
+        '$kCatApiUrl/breeds/search',
+        queryParameters: {'q': query},
+        options: Options(headers: {'x-api-key': kCatApiKey}),
+      );
+      return (response.data as List)
+          .map((json) => CatBreedModel.fromJson(json))
+          .toList();
+    } on DioException catch (e) {
+      throw Exception('Failed to search breeds: ${e.message}');
+    }
+  }
 }

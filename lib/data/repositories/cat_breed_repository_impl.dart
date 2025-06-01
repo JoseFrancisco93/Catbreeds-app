@@ -17,4 +17,15 @@ class CatBreedRepositoryImpl implements CatBreedRepository {
           exception: e is Exception ? e : null);
     }
   }
+
+  @override
+  Future<List<CatBreed>> searchBreeds(String query) async {
+    try {
+      final breeds = await apiService.searchBreeds(query);
+      return breeds.map((model) => model.toEntity()).toList();
+    } catch (e) {
+      throw Failure('Error searching breeds',
+          exception: e is Exception ? e : null);
+    }
+  }
 }
