@@ -1,16 +1,22 @@
-# catbreeds_app
+# Cat Breeds App
 
-A new Flutter project.
+> **Platform:** Android
 
-## Getting Started
+Mobile application developed as a technical test.
 
-This project is a starting point for a Flutter application.
+## 📱 Description
 
-A few resources to get you started if this is your first Flutter project:
+This app allows users to browse information about different cat breeds, consuming data from the public [TheCatAPI](https://developers.thecatapi.com/).
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🚀 Main Features
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- List of cat breeds.
+- Details and images for each breed.
+- REST API consumption using DIO/HTTP.
+- Clean Architecture applied.
+- Responsive and adaptable to different devices.
+
+## 🔗 API Used
+
+- [https://api.thecatapi.com/v1/breeds](https://api.thecatapi.com/v1/breeds)
+- Documentation: [https://developers.thecatapi.com/](https://developers.thecatapi.com/)
