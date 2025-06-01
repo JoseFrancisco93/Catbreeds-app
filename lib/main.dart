@@ -26,14 +26,20 @@ class MyApp extends StatelessWidget {
           create: (_) => CatBreedProvider(getCatBreedsUseCase),
         ),
       ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: !IS_PROD,
-        title: 'Cat Breeds',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-          useMaterial3: true,
+      child: GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: () {
+          FocusManager.instance.primaryFocus?.unfocus();
+        },
+        child: MaterialApp(
+          debugShowCheckedModeBanner: !IS_PROD,
+          title: 'Cat Breeds',
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+            useMaterial3: true,
+          ),
+          home: const SplashScreen(),
         ),
-        home: const SplashScreen(),
       ),
     );
   }
